@@ -10,10 +10,10 @@ router.get('/:id', ctrlWrapper(getContactByIdController));
 
 router.post('/', ctrlWrapper(createContactController));
 
-router.patch('./:id', ctrlWrapper(updateContactController));
+router.patch('/:id', ctrlWrapper(updateContactController));
 
-router.delete('./:id', ctrlWrapper(deleteContactController));
+router.delete('/:id', ctrlWrapper(deleteContactController));
 
-router.put('./:id', ctrlWrapper(replaceContactController));
+router.put('/:id', ctrlWrapper(replaceContactController));
     
 export default router;
