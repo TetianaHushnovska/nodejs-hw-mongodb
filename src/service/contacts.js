@@ -1,9 +1,9 @@
 import { ContactsCollection } from "../db/models/contacts.js";
 
-export const getAllContacts = async (page, perPage, sortBy, sortOrder, filter={}) => {
+export const getAllContacts = async (page, perPage, sortBy, sortOrder, filter={}, userId) => {
     const skip = page > 0 ? (page - 1) * perPage : 0;
 
-    const contactsQuery = ContactsCollection.find();
+    const contactsQuery = ContactsCollection.find({userId});
 
     if (typeof filter.type !== 'undefined') {
         contactsQuery.where('contactType').equals(filter.type);
@@ -30,8 +30,8 @@ export const getAllContacts = async (page, perPage, sortBy, sortOrder, filter={}
     };
 };
 
-export const getContactById = async (contactId) => {
-    return ContactsCollection.findById(contactId);
+export const getContactById = async (contactId, userId) => {
+    return ContactsCollection.findOne({_id: contactId, userId });
 };
 
 export const createContact = async (payload) => {
