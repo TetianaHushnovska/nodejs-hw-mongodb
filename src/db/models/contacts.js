@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import mongoose, { model, Schema } from 'mongoose';
 
 const contactsShema = new Schema(
     {
@@ -23,6 +23,10 @@ const contactsShema = new Schema(
             required: true,
             default: "personal",
         },
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true, 
+        }
     },
     {
         timestamps: true,
