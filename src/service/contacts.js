@@ -39,11 +39,11 @@ export const createContact = async (payload) => {
 };
 
 export const updateContact = async (contactId, payload) => {
-    return ContactsCollection.findByIdAndUpdate(contactId, payload, { new: true });
+    return ContactsCollection.findOneAndUpdate(contactId, payload, { new: true });
 };
 
 export const deleteContact = async (contactId) => {
-    return ContactsCollection.findByIdAndDelete(contactId);
+    return ContactsCollection.findOneAndDelete(contactId);
 };
 
 export const replaceContact = async (contactId, payload) => {
