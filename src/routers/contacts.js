@@ -21,6 +21,7 @@ router.post('/',
 
 router.patch('/:id',
     isValidId,
+    upload.single('photo'),
     validateBody(updateContactShema),
     ctrlWrapper(updateContactController));
 
