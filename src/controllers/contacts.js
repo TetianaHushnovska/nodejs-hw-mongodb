@@ -1,5 +1,5 @@
-import * as fs from "node:fs/promises";
-import path from "node:path";
+import * as fs from 'node:fs/promises';
+import path from 'node:path';
 import createHttpError from 'http-errors';
 import { createContact, deleteContact, getAllContacts, getContactById, replaceContact, updateContact } from '../service/contacts.js'; 
 import { parsePaginationParams } from '../utils/parsePaginationParams.js';
@@ -39,8 +39,7 @@ export const getContactByIdController = async (req, res, next) => {
 export const createContactController = async (req, res) => {
     // await fs.rename(req.file.path, path.resolve('src/uploads/photos', req.file.filename));
 
-    const result = await uploadToCloudinary(req.file.path);
-    await fs.unlink(req.file.filename);
+    const result = await uploadToCloudinary(req.file.path); 
 
     const contact = await createContact({ ...req.body, photo: result.secure_url, userId: req.user.id });
 
