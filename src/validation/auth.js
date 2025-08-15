@@ -1,21 +1,25 @@
-import Joi from "joi";
+import Joi from 'joi';
 
 export const registerUser = Joi.object({
-    name: Joi.string().min(3).max(30).required(),
-    email: Joi.string().email().required(),
-    password: Joi.string().required(),
+  name: Joi.string().min(3).max(30).required(),
+  email: Joi.string().email().required(),
+  password: Joi.string().required(),
 });
 
 export const loginUser = Joi.object({
-    email: Joi.string().email().required(),
-    password: Joi.string().required(),
+  email: Joi.string().email().required(),
+  password: Joi.string().required(),
 });
 
 export const requestPasswordResetSchema = Joi.object({
-    email: Joi.string().email().required(),
+  email: Joi.string().email().required(),
 });
 
 export const resetPasswordSchema = Joi.object({
-    token: Joi.string().required(),
-    password: Joi.string().required(),
+  token: Joi.string().required(),
+  password: Joi.string().required(),
+});
+
+export const confirmOAuthShema = Joi.object({
+  code: Joi.string().required(),
 });
