@@ -14,7 +14,7 @@
       "url": "http://127.0.0.1:3000"
     },
     {
-      "url": null
+      "url": "https://nodejs-hw7-swagger-p0s5.onrender.com"
     }
   ],
   "tags": [
@@ -596,33 +596,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Successfully delete contact with id",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "status",
-                    "message",
-                    "data"
-                  ],
-                  "properties": {
-                    "status": {
-                      "type": "integer",
-                      "example": 200
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Successfully delete contact with id"
-                    },
-                    "data": {
-                      "$ref": "#/components/schemas/contact"
-                    }
-                  }
-                }
-              }
-            }
+          "204": {
+            "description": "Successfully delete contact with id"
           },
           "401": {
             "$ref": "#/components/responses/401"
